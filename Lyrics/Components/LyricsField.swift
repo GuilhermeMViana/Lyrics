@@ -8,11 +8,41 @@
 import SwiftUI
 
 struct LyricsField: View {
+    
+    let placeholder: String
+    @Binding var text: String
+    var isSecure: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        if isSecure {
+            SecureField(text: $text){
+                Text(placeholder)
+                    .foregroundStyle(Color.secondaryText)
+            }
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 50)
+                        .stroke(Color.accent, lineWidth: 2)
+                )
+                .padding()
+        } else {
+            TextField(text: $text){
+                Text(placeholder)
+                    .foregroundStyle(Color.secondaryText)
+            }
+                .foregroundStyle(Color.primaryText)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 50)
+                        .stroke(Color.accent, lineWidth: 2)
+                )
+                .padding()
+        }
+        
     }
 }
 
 #Preview {
-    LyricsField()
+    LyricsField(placeholder: "", text: .constant(""))
 }
