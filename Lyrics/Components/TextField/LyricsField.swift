@@ -9,8 +9,9 @@ import SwiftUI
 
 struct LyricsField: View {
     
-    let placeholder: String
+    var placeholder: String
     @Binding var text: String
+    var borderColor: Color = Color.accent
     var isSecure: Bool = false
     
     var body: some View {
@@ -22,8 +23,8 @@ struct LyricsField: View {
             }
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: 50)
-                        .stroke(Color.accent, lineWidth: 2)
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(borderColor, lineWidth: 2)
                 )
                 .padding()
         } else {
@@ -31,11 +32,10 @@ struct LyricsField: View {
                 Text(placeholder)
                     .foregroundStyle(Color.secondaryText)
             }
-                .foregroundStyle(Color.primaryText)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: 50)
-                        .stroke(Color.accent, lineWidth: 2)
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(borderColor, lineWidth: 2)
                 )
                 .padding()
         }
@@ -44,5 +44,10 @@ struct LyricsField: View {
 }
 
 #Preview {
-    LyricsField(placeholder: "", text: .constant(""))
+    VStack(spacing: 20){
+        LyricsField(placeholder: "Login", text: .constant(""))
+        LyricsField(placeholder: "Senha", text: .constant(""))
+    }
+    .padding()
+    .background(Color.background)
 }

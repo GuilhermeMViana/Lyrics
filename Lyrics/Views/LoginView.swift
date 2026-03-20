@@ -31,30 +31,14 @@ struct LoginView: View {
                     }
                     .tint(.accent)
                     
-                    
-                    
-                    Button {
-                        
-                    } label: {
-                        Text("Entrar")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(5)
-                    }
-                    .buttonStyle(.glassProminent)
-                    .padding(.horizontal, 60)
-                    
+                    LyricsButton(title: "Entrar", action: {})
                     
                     NavigationLink {
                         RegisterView()
                     } label: {
                         Text("Registrar")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(5)
                     }
-                    .padding(.horizontal, 60)
-                    .buttonStyle(.glass)
+                    .buttonStyle(LyricsButtonStyle(variant: .secondary))
                 }
             }
         }

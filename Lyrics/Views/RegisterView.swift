@@ -11,38 +11,29 @@ struct RegisterView: View {
     @State private var name = ""
     @State private var email = ""
     @State private var phone = ""
-    @State private var username = ""
     @State private var password = ""
     @State private var confirmPassword = ""
     
     var body: some View {
-        VStack {
-            TextField("Nome", text: $name)
-                .padding()
-            
-            TextField("E-mail", text: $username)
-                .padding()
-            
-            TextField("Telefone", text: $username)
-                .padding()
-            
-            TextField("Login", text: $username)
-                .padding()
+        ZStack {
+            Color.background
+                .ignoresSafeArea()
+            VStack {
+                LyricsField(placeholder: "Nome", text: $name)
                 
-            
-            SecureField("Senha", text: $password)
-                .padding()
-            
-            SecureField("Confirmar Senha", text: $confirmPassword)
-                .padding()
-            
-            Button("Registrar") {
+                LyricsField(placeholder: "E-mail", text: $email)
                 
-            }
-            .buttonStyle(.glassProminent)
+                LyricsField(placeholder: "Telefone", text: $phone)
+                
+                LyricsField(placeholder: "Senha", text: $password , isSecure: true)
+                
+                LyricsField(placeholder: "Confirmar Senha", text: $confirmPassword , isSecure: true)
+                
+                LyricsButton(title: "Cadastrar", action: {},  variant: .secondary)
 
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
