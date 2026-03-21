@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LyricsButton: View {
     let title: String
-    let action: () -> Void
     var variant: ButtonVariants = .primary
+    let action: () -> Void
     
     var body: some View {
         Button(action: action) {
@@ -25,9 +25,9 @@ struct LyricsButton: View {
 
 #Preview {
     VStack(spacing: 20) {
-        LyricsButton(title: "Ouvir Agora", action: {},  variant: .primary)
-        LyricsButton(title: "Adicionar à Playlist",action: {},  variant: .secondary)
-        LyricsButton( title: "Remover",action: {}, variant: .alert)
+        LyricsButton(title: "Ouvir Agora", variant: .primary, action: {})
+        LyricsButton(title: "Adicionar à Playlist", variant: .secondary, action: {})
+        LyricsButton( title: "Remover", variant: .alert, action: {})
     }
     .padding()
     .background(Color.background)

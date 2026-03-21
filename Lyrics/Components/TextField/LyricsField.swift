@@ -11,7 +11,6 @@ struct LyricsField: View {
     
     var placeholder: String
     @Binding var text: String
-    var borderColor: Color = Color.accent
     var isSecure: Bool = false
     
     var body: some View {
@@ -21,23 +20,13 @@ struct LyricsField: View {
                 Text(placeholder)
                     .foregroundStyle(Color.secondaryText)
             }
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(borderColor, lineWidth: 2)
-                )
-                .padding()
+            .lyricsFieldStyle()
         } else {
             TextField(text: $text){
                 Text(placeholder)
                     .foregroundStyle(Color.secondaryText)
             }
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(borderColor, lineWidth: 2)
-                )
-                .padding()
+            .lyricsFieldStyle()
         }
         
     }

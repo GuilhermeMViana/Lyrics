@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		383A22792F6F2E0D00ABD711 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 383A22782F6F2E0D00ABD711 /* PhoneNumberKit */; };
+		383A22872F6F49B300ABD711 /* PhoneNumberKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 383A22842F6F49B300ABD711 /* PhoneNumberKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		385DCF552F6C4FB600EAEDFF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -23,15 +28,42 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		383A22862F6F49B300ABD711 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				383A22872F6F49B300ABD711 /* PhoneNumberKit-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		385DCF452F6C4FB500EAEDFF /* Lyrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lyrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		385DCF542F6C4FB600EAEDFF /* LyricsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyricsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		385DCF5E2F6C4FB600EAEDFF /* LyricsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyricsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		383A22832F6F473E00ABD711 /* Exceptions for "Lyrics" folder in "Lyrics" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 385DCF442F6C4FB500EAEDFF /* Lyrics */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		385DCF472F6C4FB500EAEDFF /* Lyrics */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				383A22832F6F473E00ABD711 /* Exceptions for "Lyrics" folder in "Lyrics" target */,
+			);
 			path = Lyrics;
 			sourceTree = "<group>";
 		};
@@ -52,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383A22792F6F2E0D00ABD711 /* PhoneNumberKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +105,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		383A22772F6F2E0D00ABD711 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		385DCF3C2F6C4FB500EAEDFF = {
 			isa = PBXGroup;
 			children = (
 				385DCF472F6C4FB500EAEDFF /* Lyrics */,
 				385DCF572F6C4FB600EAEDFF /* LyricsTests */,
 				385DCF612F6C4FB600EAEDFF /* LyricsUITests */,
+				383A22772F6F2E0D00ABD711 /* Frameworks */,
 				385DCF462F6C4FB500EAEDFF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +143,7 @@
 				385DCF412F6C4FB500EAEDFF /* Sources */,
 				385DCF422F6C4FB500EAEDFF /* Frameworks */,
 				385DCF432F6C4FB500EAEDFF /* Resources */,
+				383A22862F6F49B300ABD711 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -112,6 +154,8 @@
 			);
 			name = Lyrics;
 			packageProductDependencies = (
+				383A22782F6F2E0D00ABD711 /* PhoneNumberKit */,
+				383A22842F6F49B300ABD711 /* PhoneNumberKit-Dynamic */,
 			);
 			productName = Lyrics;
 			productReference = 385DCF452F6C4FB500EAEDFF /* Lyrics.app */;
@@ -195,6 +239,9 @@
 			);
 			mainGroup = 385DCF3C2F6C4FB500EAEDFF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				383A22762F6F29E600ABD711 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 385DCF462F6C4FB500EAEDFF /* Products */;
 			projectDirPath = "";
@@ -400,6 +447,7 @@
 				DEVELOPMENT_TEAM = Z8CZW36WQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lyrics/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +480,7 @@
 				DEVELOPMENT_TEAM = Z8CZW36WQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Lyrics/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -578,6 +627,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		383A22762F6F29E600ABD711 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		383A22782F6F2E0D00ABD711 /* PhoneNumberKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 383A22762F6F29E600ABD711 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
+		};
+		383A22842F6F49B300ABD711 /* PhoneNumberKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 383A22762F6F29E600ABD711 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = "PhoneNumberKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 385DCF3D2F6C4FB500EAEDFF /* Project object */;
 }

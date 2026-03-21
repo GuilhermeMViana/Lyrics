@@ -9,9 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct LoginView: View {
+    @Environment(\.modelContext) var modelContext
     
     @State private var username = ""
     @State private var password = ""
+    
+    @Query var user: [User]
     
     var body: some View {
             NavigationStack {
@@ -31,7 +34,9 @@ struct LoginView: View {
                     }
                     .tint(.accent)
                     
-                    LyricsButton(title: "Entrar", action: {})
+                    LyricsButton(title: "Entrar", action: {
+                        
+                    })
                     
                     NavigationLink {
                         RegisterView()
