@@ -9,10 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct LoginView: View {
-    @Environment(\.modelContext) var modelContext
+    @Query var users: [User]
     
     @State private var username = ""
     @State private var password = ""
+    @State private var foundUser: Bool = false
     
     @Query var user: [User]
     
@@ -23,19 +24,24 @@ struct LoginView: View {
                         .ignoresSafeArea()
                     
                 VStack() {
+                    if foundUser == true {
+                        Text("Você está logado")
+                    }
                     Image("MusicImage")
                         .resizable()
                         .frame(width: 100, height: 100)
                     
                     VStack {
-                        LyricsField(placeholder: "Login", text: $username)
+                        LyricsField(placeholder: "Login", text: $username).textInputAutocapitalization(.never)
                         LyricsField(placeholder: "Senha", text: $password, isSecure: true)
                         
                     }
                     .tint(.accent)
                     
                     LyricsButton(title: "Entrar", action: {
-                        
+                        foundUser = user.contains(where: { user in
+                            return user.email == self.username && user.password == self.password
+                        })
                     })
                     
                     NavigationLink {

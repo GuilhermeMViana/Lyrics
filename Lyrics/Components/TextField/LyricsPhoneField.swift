@@ -16,6 +16,7 @@ struct LyricsPhoneField: UIViewRepresentable {
         let textField = PhoneNumberTextField()
         textField.withPrefix = true
         textField.withFlag = true
+        textField.withDefaultPickerUI = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = placeholder
         textField.backgroundColor = .clear

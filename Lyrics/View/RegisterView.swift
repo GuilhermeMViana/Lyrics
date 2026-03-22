@@ -52,7 +52,7 @@ struct RegisterView: View {
                     }
 
                 }
-                .padding()
+                .padding(.horizontal)
             }
         }
     }
