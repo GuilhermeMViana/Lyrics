@@ -12,6 +12,7 @@ import PhoneNumberKit
 struct RegisterView: View {
     @Environment(\.modelContext) var modelContext
     @State private var viewModel = RegisterViewModel()
+    @State private var didRegister = false
     
     var body: some View {
         NavigationStack {
@@ -39,6 +40,7 @@ struct RegisterView: View {
                     LyricsButton(title: "Cadastrar", variant: .secondary, action: {
                         if viewModel.isFormValid {
                             viewModel.register(context: modelContext)
+                            didRegister = true
                             print("Usuário Salvo")
                         } else {
                             print("Erro")
@@ -54,6 +56,9 @@ struct RegisterView: View {
                 }
                 .padding(.horizontal)
             }
+        }
+        .navigationDestination(isPresented: $didRegister) {
+            LoginView()
         }
     }
 }

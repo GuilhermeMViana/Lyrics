@@ -14,44 +14,54 @@ struct LoginView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var foundUser: Bool = false
+    @State private var showError: Bool = false
     
     @Query var user: [User]
     
     var body: some View {
-            NavigationStack {
+        NavigationStack {
+            if foundUser {
+                HomeView()
+            } else {
                 ZStack {
                     Color.background
                         .ignoresSafeArea()
                     
-                VStack() {
-                    if foundUser == true {
-                        Text("Você está logado")
-                    }
-                    Image("MusicImage")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                    
-                    VStack {
-                        LyricsField(placeholder: "Login", text: $username).textInputAutocapitalization(.never)
-                        LyricsField(placeholder: "Senha", text: $password, isSecure: true)
+                    VStack() {
+                        Image("MusicImage")
+                            .resizable()
+                            .frame(width: 100, height: 100)
                         
-                    }
-                    .tint(.accent)
-                    
-                    LyricsButton(title: "Entrar", action: {
-                        foundUser = user.contains(where: { user in
-                            return user.email == self.username && user.password == self.password
+                        VStack {
+                            LyricsField(placeholder: "Login", text: $username).textInputAutocapitalization(.never)
+                            LyricsField(placeholder: "Senha", text: $password, isSecure: true)
+                            
+                        }
+                        .tint(.accent)
+                        
+                        LyricsButton(title: "Entrar", action: {
+                            foundUser = user.contains(where: { user in
+                                return user.email == self.username && user.password == self.password
+                            })
+                            
+                            if !foundUser {
+                                showError = true
+                            }
                         })
-                    })
-                    
-                    NavigationLink {
-                        RegisterView()
-                    } label: {
-                        Text("Registrar")
+                        
+                        NavigationLink {
+                            RegisterView()
+                        } label: {
+                            Text("Registrar")
+                        }
+                        .buttonStyle(LyricsButtonStyle(variant: .secondary))
                     }
-                    .buttonStyle(LyricsButtonStyle(variant: .secondary))
                 }
             }
+        }.alert("Erro de autenticação", isPresented: $showError) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Usuário ou senha inválidos.")
         }
     }
 }

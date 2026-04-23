@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		383A22792F6F2E0D00ABD711 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 383A22782F6F2E0D00ABD711 /* PhoneNumberKit */; };
-		383A22872F6F49B300ABD711 /* PhoneNumberKit-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 383A22842F6F49B300ABD711 /* PhoneNumberKit-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +34,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				383A22872F6F49B300ABD711 /* PhoneNumberKit-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +146,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3806576E2F9A9A6F00023D73 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				385DCF472F6C4FB500EAEDFF /* Lyrics */,
@@ -155,7 +154,6 @@
 			name = Lyrics;
 			packageProductDependencies = (
 				383A22782F6F2E0D00ABD711 /* PhoneNumberKit */,
-				383A22842F6F49B300ABD711 /* PhoneNumberKit-Dynamic */,
 			);
 			productName = Lyrics;
 			productReference = 385DCF452F6C4FB500EAEDFF /* Lyrics.app */;
@@ -303,6 +301,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3806576E2F9A9A6F00023D73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 3806576D2F9A9A6F00023D73 /* PhoneNumberKit */;
+		};
 		385DCF562F6C4FB600EAEDFF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 385DCF442F6C4FB500EAEDFF /* Lyrics */;
@@ -640,15 +642,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		383A22782F6F2E0D00ABD711 /* PhoneNumberKit */ = {
+		3806576D2F9A9A6F00023D73 /* PhoneNumberKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 383A22762F6F29E600ABD711 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
 			productName = PhoneNumberKit;
 		};
-		383A22842F6F49B300ABD711 /* PhoneNumberKit-Dynamic */ = {
+		383A22782F6F2E0D00ABD711 /* PhoneNumberKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 383A22762F6F29E600ABD711 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
-			productName = "PhoneNumberKit-Dynamic";
+			productName = PhoneNumberKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
