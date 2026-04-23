@@ -20,6 +20,11 @@ struct RegisterView: View {
                 Color.background
                     .ignoresSafeArea()
                 VStack {
+                    NavigationLink(destination: LoginView(), isActive: $didRegister) {
+                        EmptyView()
+                    }
+                    .hidden()
+                    
                     Text("Digite seus dados:")
                         .font(Font.largeTitle.bold())
                         .foregroundStyle(Color.primaryText)
@@ -56,9 +61,6 @@ struct RegisterView: View {
                 }
                 .padding(.horizontal)
             }
-        }
-        .navigationDestination(isPresented: $didRegister) {
-            LoginView()
         }
     }
 }

@@ -10,12 +10,12 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         TabView {
-            SongsList()
+            SongsListView()
                 .tabItem {
                     Label("Músicas", systemImage: "music.note")
                 }
             
-            FavoriteSongs()
+            FavoriteSongsView()
                 .tabItem {
                     Label("Favoritos", systemImage: "star")
                 }

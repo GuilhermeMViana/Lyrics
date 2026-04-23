@@ -14,7 +14,7 @@ struct LoginView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var foundUser: Bool = false
-    @State private var showError: Bool = false
+    @State private var loginError: Bool = false
     
     @Query var user: [User]
     
@@ -43,10 +43,6 @@ struct LoginView: View {
                             foundUser = user.contains(where: { user in
                                 return user.email == self.username && user.password == self.password
                             })
-                            
-                            if !foundUser {
-                                showError = true
-                            }
                         })
                         
                         NavigationLink {
@@ -57,11 +53,12 @@ struct LoginView: View {
                         .buttonStyle(LyricsButtonStyle(variant: .secondary))
                     }
                 }
+                .alert("Erro de autenticação", isPresented: $loginError) {
+                    Button("OK", role: .cancel) {}
+                } message: {
+                    Text("Usuário ou senha inválidos. Por favor, tente novamente.")
+                }
             }
-        }.alert("Erro de autenticação", isPresented: $showError) {
-            Button("OK", role: .cancel) { }
-        } message: {
-            Text("Usuário ou senha inválidos.")
         }
     }
 }
