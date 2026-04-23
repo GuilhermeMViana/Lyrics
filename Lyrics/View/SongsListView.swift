@@ -9,17 +9,16 @@ import SwiftUI
 
 struct SongsListView: View {
     @State private var results = [Result]()
-    @State private var search = ""
+    @State private var search = "Eminem"
     
     var body: some View {
         NavigationStack {
             List(results, id: \.trackId) { item in
                 VStack(alignment: .leading) {
-                    Text(item.trackName)
-                        .font(.headline)
-                    Text(item.artistName)
+                   LyricsListItem(item: item)
                 }
             }
+            .selectionDisabled()
             .task {
                 await loadData()
             }
