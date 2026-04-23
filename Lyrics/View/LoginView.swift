@@ -43,6 +43,10 @@ struct LoginView: View {
                             foundUser = user.contains(where: { user in
                                 return user.email == self.username && user.password == self.password
                             })
+                            
+                            if !foundUser {
+                                loginError = true
+                            }
                         })
                         
                         NavigationLink {
