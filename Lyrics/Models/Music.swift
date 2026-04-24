@@ -9,6 +9,10 @@ import SwiftData
 
 struct MusicResponse: Codable {
     var musics: [Music]
+    
+    enum CodingKeys: String, CodingKey {
+        case musics = "results"
+    }
 }
 
 @Model
