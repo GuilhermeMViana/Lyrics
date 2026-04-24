@@ -10,7 +10,7 @@ import Combine
 
 @MainActor
 final class SongsListViewModel: ObservableObject {
-    @Published var results: [Result] = []
+    @Published var results: [Music] = []
     @Published var search: String = ""
 
     private var searchTask: Task<Void, Never>?
@@ -42,8 +42,8 @@ final class SongsListViewModel: ObservableObject {
 
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
-                results = decodedResponse.results
+            if let decodedResponse = try? JSONDecoder().decode(MusicResponse.self, from: data) {
+                results = decodedResponse.musics
             }
         } catch {
             print("Invalid data: \(error)")
