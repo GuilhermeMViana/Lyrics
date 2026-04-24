@@ -9,8 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct LoginView: View {
-    @Query var users: [User]
-    
     @State private var username = ""
     @State private var password = ""
     @State private var foundUser: Bool = false
