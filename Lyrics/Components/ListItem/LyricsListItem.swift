@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct LyricsListItem: View {
-    let item: Result
+    @Environment(\.modelContext) var modelContext
+    
+    let item: Music
+    
 
     var body: some View {
         HStack {
@@ -22,7 +26,7 @@ struct LyricsListItem: View {
             Spacer()
             
             Button("") {
-                
+                modelContext.insert(item)
             }
             .padding()
             .background {
@@ -33,9 +37,10 @@ struct LyricsListItem: View {
 }
 
 #Preview {
-    LyricsListItem(item: Result(
+    LyricsListItem(item: Music(
         trackId: 1,
         artistName: "Eminem",
-        trackName: "Lose Yourself"
+        trackName: "Lose Yourself",
+        collectionName: "8 Mile"
     ))
 }
