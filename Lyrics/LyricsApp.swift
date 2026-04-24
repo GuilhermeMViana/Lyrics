@@ -13,6 +13,7 @@ struct LyricsApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             User.self,
+            Music.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

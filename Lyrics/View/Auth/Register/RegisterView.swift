@@ -61,6 +61,10 @@ struct RegisterView: View {
             }
         }
     }
+    func finalizarLogin(usuarioLogado: User) {
+        UserDefaults.standard.set(usuarioLogado.id.uuidString, forKey: "currentUserId")
+        // Só depois disso navegue para a Home
+    }
 }
 
 #Preview {

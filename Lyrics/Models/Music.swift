@@ -21,6 +21,8 @@ class Music: Codable {
     var artistName: String
     var trackName: String
     var collectionName: String
+    var isFavorite: Bool = false
+    var favoritedBy: [User]? = []
     
     enum CodingKeys: String, CodingKey {
         case trackId, artistName, trackName, collectionName
@@ -47,5 +49,6 @@ class Music: Codable {
         self.artistName = artistName
         self.trackName = trackName
         self.collectionName = collectionName
+        self.favoritedBy = []
     }
 }

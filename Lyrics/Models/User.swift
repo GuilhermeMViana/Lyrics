@@ -16,6 +16,9 @@ final class User {
     var phone: String
     var password: String
     var createdAt: Date
+    @Relationship(inverse: \Music.favoritedBy)
+    var favoritedSongs: [Music] = []
+    
     
     init(id: UUID = UUID(), name: String, email: String, phone: String, password: String, createdAt: Date = .now) {
         self.id = id
@@ -24,5 +27,6 @@ final class User {
         self.phone = phone
         self.password = password
         self.createdAt = createdAt
+        self.favoritedSongs = []
     }
 }

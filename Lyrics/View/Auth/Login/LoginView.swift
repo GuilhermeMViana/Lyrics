@@ -13,13 +13,14 @@ struct LoginView: View {
     @State private var password = ""
     @State private var foundUser: Bool = false
     @State private var loginError: Bool = false
+    @State var actualUser: User?
     
     @Query var user: [User]
     
     var body: some View {
         NavigationStack {
             if foundUser {
-                HomeView()
+                HomeView(user: actualUser)
             } else {
                 ZStack {
                     Color.background
@@ -39,6 +40,7 @@ struct LoginView: View {
                         
                         LyricsButton(title: "Entrar", action: {
                             foundUser = user.contains(where: { user in
+                                actualUser = user
                                 return user.email == self.username && user.password == self.password
                             })
                             
