@@ -20,7 +20,6 @@ struct RegisterView: View {
                 Color.background
                     .ignoresSafeArea()
                 VStack {
-                    
                     Text("Digite seus dados:")
                         .font(Font.largeTitle.bold())
                         .foregroundStyle(Color.primaryText)
