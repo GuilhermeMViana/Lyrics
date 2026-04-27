@@ -20,7 +20,7 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             if foundUser {
-                HomeView(user: actualUser)
+                HomeView()
             } else {
                 ZStack {
                     Color.background

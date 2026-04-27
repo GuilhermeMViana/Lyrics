@@ -9,15 +9,13 @@ import SwiftUI
 
 struct SongsListView: View {
     @StateObject private var viewModel = SongsListViewModel()
-    let currentUser: User?
     
     
     var body: some View {
         NavigationStack {
-            Text(currentUser?.name ?? "")
             List(viewModel.results, id: \.trackId) { item in
                 VStack(alignment: .leading) {
-                    LyricsListItem(item: item, user: currentUser)
+                    LyricsListItemView(item: item)
                 }
             }
             .selectionDisabled()
@@ -35,5 +33,5 @@ struct SongsListView: View {
 
 
 #Preview {
-    SongsListView(currentUser: nil)
+    SongsListView()
 }

@@ -27,6 +27,7 @@ struct LyricsApp: App {
     var body: some Scene {
         WindowGroup {
             LoginView()
+                .environment(UserEnvironment(modelContext: sharedModelContainer.mainContext))
         }
         .modelContainer(sharedModelContainer)
     }

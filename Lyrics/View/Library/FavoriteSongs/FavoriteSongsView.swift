@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct FavoriteSongsView: View {
+    @Environment(UserEnvironment.self) private var userEnv
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            if let songs = userEnv.currentUser?.favoritedSongs, !songs.isEmpty {
+                ForEach(songs, id: \.trackId) { music in
+                    LyricsListItemView(item: music)
+                }
+            }
+        }
+        .navigationTitle("Músicas Favoritas")
     }
 }
 
