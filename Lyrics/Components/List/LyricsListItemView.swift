@@ -8,33 +8,37 @@
 import SwiftUI
 import SwiftData
 
-struct LyricsListItem: View {
+struct LyricsListItemView: View {
+    @Environment(UserEnvironment.self) private var userEnv
     @Environment(\.modelContext) var modelContext
+    @State private var viewModel: LyricsLisItemViewModel?
     let item: Music
-    let user: User?
-
+    
     var body: some View {
-        let viewModel = LyricsLisItemViewModel(modelContext: modelContext, item: item, user: user)
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text(viewModel.item.trackName)
+                Text(item.trackName)
                     .font(.headline)
-                Text(viewModel.item.artistName)
+                Text(item.artistName)
                     .foregroundStyle(.secondary)
             }
             
             Spacer()
             
             Button {
-                viewModel.toggleFavorite()
-                print(viewModel.isFavorited ? "Sim" : "Não")
+                viewModel?.toggleFavorite()
             } label: {
-                Image(systemName: viewModel.isFavorited ? "heart.fill" : "heart")
-                    .foregroundColor(viewModel.isFavorited ? .red : .gray)
+                Image(systemName: viewModel?.isFavorited == true ? "heart.fill" : "heart")
+                    .foregroundColor(viewModel?.isFavorited == true ? .red : .gray)
                     .font(.system(size: 25))
                     .padding(10)
             }
             .buttonStyle(.borderless)
+        }
+        .task {
+            if viewModel == nil {
+                viewModel = LyricsLisItemViewModel(modelContext: modelContext, item: item, userEnv: userEnv)
             }
+        }
     }
 }
