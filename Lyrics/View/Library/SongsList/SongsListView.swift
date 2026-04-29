@@ -23,9 +23,25 @@ struct SongsListView: View {
                 await viewModel.loadData()
             }
         }
-        .searchable(text: $viewModel.search)
-        .onChange(of: viewModel.search) { _, newValue in
-            viewModel.updateSearch(newValue)
+        .safeAreaInset(edge: .bottom) {
+            HStack {
+                Spacer(minLength: 16)
+                TextField("Pesquisar", text: $viewModel.search)
+                    .padding(.horizontal)
+                    .padding(.vertical, 10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(.white)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .strokeBorder(Color.secondary.opacity(0.15), lineWidth: 1)
+                    )
+                    .onChange(of: viewModel.search) { _, newValue in
+                        viewModel.updateSearch(newValue)
+                    }
+                Spacer(minLength: 16)
+            }
         }
     }
 }
